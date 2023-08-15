@@ -1,0 +1,54 @@
+:root, .btn-outline-primary {
+  --rojo: #ff4057;
+  --slogan: #dcdcdc;
+  --background: #282634;
+  --bs-body-bg: var(--background);
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: #fff;
+  --bs-btn-hover-bg: var(--rojo);
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+#slider {
+  position: relative;
+  background-image: url(../img/quakeiirtx.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#slider .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#slider .row {
+  min-height: 60vh;
+  max-width: 30%;
+  margin: auto;
+  padding: 16vh 0;
+  position: relative;
+  z-index: 2;
+}
+
+.homepage-card {
+  min-height: 400px;
+}
