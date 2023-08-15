@@ -1,4 +1,6 @@
-:root, .btn-outline-primary {
+:root,
+.btn-outline-primary,
+[data-bs-theme="dark"] {
   --rojo: #ff4057;
   --slogan: #dcdcdc;
   --background: #282634;
@@ -6,15 +8,23 @@
   --bs-btn-color: #fff;
   --bs-btn-border-color: #fff;
   --bs-btn-hover-bg: var(--rojo);
+  --bs-link-color-rgb: 255, 64, 87;
+  --bs-link-hover-color-rgb: 211, 32, 53;
 }
 
 body {
   font-family: "Ubuntu", sans-serif;
 }
 
-h2 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .navbar-brand img {
@@ -24,7 +34,7 @@ h2 {
 
 #slider {
   position: relative;
-  background-image: url(../img/quakeiirtx.jpg);
+  background-image: url(../img/fps.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -49,6 +59,89 @@ h2 {
   z-index: 2;
 }
 
+.page-category #slider .row {
+  max-width: 80%;
+}
+
 .homepage-card {
-  min-height: 400px;
+  min-height: 450px;
+  position: relative;
+  padding-bottom: 2em;
+}
+
+.homepage-card a {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0px 0px 7px #000000, 0px 0px 20px #000000, 0px 0px 40px #000000;
+}
+
+.homepage-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96%;
+  height: 96%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(45%);
+  transition: all 1s ease;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.homepage-card:hover .homepage-card-bg {
+  filter: none;
+}
+
+.homepage-card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96%;
+  height: 96%;
+  z-index: 2;
+}
+
+.homepage-card-fps .homepage-card-bg {
+  background-image: url(../img/fps.jpg);
+}
+
+.homepage-card-deportes .homepage-card-bg {
+  background-image: url(../img/deportes.jpg);
+}
+
+.homepage-card-aventura .homepage-card-bg {
+  background-image: url(../img/aventura.jpg);
+  background-size: auto 130%;
+}
+
+.homepage-card-ingenio .homepage-card-bg {
+  background-image: url(../img/ingenio.jpg);
+  background-size: auto 130%;
+}
+
+.homepage-card-rpg .homepage-card-bg {
+  background-image: url(../img/rpg.jpg);
+}
+
+.category-fps #slider {
+  background-image: url(../img/fps.jpg);
+}
+.category-deportes #slider {
+  background-image: url(../img/deportes.jpg);
+}
+.category-aventura #slider {
+  background-image: url(../img/aventura.jpg);
+}
+.category-ingenio #slider {
+  background-image: url(../img/ingenio.jpg);
+  background-size: 130%;
+}
+.category-ingenio #slider .bg {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.category-rpg #slider {
+  background-image: url(../img/rpg.jpg);
+  background-position: center 20%;
 }
