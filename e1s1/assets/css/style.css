@@ -145,3 +145,17 @@ h6 {
   background-image: url(../img/rpg.jpg);
   background-position: center 20%;
 }
+
+#registro .col-md-6.align-self-center {
+  margin: 0 auto;
+}
+
+.field-error,
+.field-error.form-control:focus {
+  color: red;
+  border-color: red;
+}
+
+#campo-fecha-nacimiento:hover {
+  cursor: pointer;
+}
