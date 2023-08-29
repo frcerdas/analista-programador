@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameManía.cl - Registro</title>
+  <title>GameManía.cl - Inicio de Sesión</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,13 +65,13 @@
   <div id="slider" class="container-fluid text-center">
     <div class="bg"></div>
     <div class="row align-items-center">
-      <h2>Registro</h2>
+      <h2>Inicio de Sesión</h2>
       <p>
         <a href="index.html">Inicio</a> >
-        <strong>Registro</strong>
+        <strong>Iniciar Sesión</strong>
       </p>
       <p class="header-desc">
-        Ingresa tus datos para formar parte de la legión gamer más grande de Chile.
+        Conéctate a la red de la legión gamer más grande de Chile.
       </p>
     </div>
   </div>
@@ -79,49 +79,18 @@
     <div class="row">
       <div class="container py-3">
         <div class="col-md-6 align-self-center">
-          <form id="registro-form">
+          <form id="login-form">
             <div class="mb-3">
-              <label for="campo-nombre" class="form-label">Ingresa tu nombre</label>
-              <input class="form-control" id="campo-nombre" name="campo-nombre" type="text"
-                placeholder="Nombre y apellido" aria-label="Campo de nombre" required>
+              <input class="form-control" id="campo-nickname" name="campo-nickname" type="text"
+                placeholder="Usuario" aria-label="Campo de nombre de usuario" required>
             </div>
             <div class="mb-3">
-              <label for="campo-nickname" class="form-label">Ingresa tu nombre de usuario</label>
-              <input class="form-control" type="text" id="campo-nickname" name="campo-nickname"
-                placeholder="No debe contener espacios ni carácteres especiales" aria-label="Campo de nombre de usuario"
-                required>
-            </div>
-            <div class="mb-3">
-              <label for="campo-email" class="form-label">Ingresa tu e-mail</label>
-              <input type="email" class="form-control" id="campo-email" name="campo-email" aria-describedby="emailHelp"
-                placeholder="correo@mail.com" required>
-              <div id="emailHelp" class="form-text">No compartiremos tu e-mail sin tu consentimiento.</div>
-            </div>
-            <div class="mb-3">
-              <label for="campo-password" class="form-label">Ingresa tu contraseña</label>
-              <input type="password" class="form-control" id="campo-password" name="campo-password" minlength="6"
-                maxlength="18"
-                placeholder="Debe contener un número, una mayúscula, y entre 6 y 18 carácteres de longitud" required>
-            </div>
-            <div class="mb-3">
-              <label for="campo-password-2" class="form-label">Reingresa tu contraseña</label>
-              <input type="password" class="form-control" id="campo-password-2" name="campo-password-2" minlength="6"
-                maxlength="18" placeholder="Reingresa la contraseña que escogiste" required>
-            </div>
-            <div class="mb-3">
-              <label for="campo-fecha-nacimiento" class="form-label">Selecciona tu fecha de nacimiento</label>
-              <input type="text" class="form-control" id="campo-fecha-nacimiento" name="campo-fecha-nacimiento"
-                placeholder="Haz click o tap y selecciona tu fecha de nacimiento"
-                aria-label="Campo de selección de fecha de nacimiento" required readonly="readonly">
-            </div>
-            <div class="mb-3">
-              <label for="campo-direccion" class="form-label">Ingresa dirección de despacho</label>
-              <input class="form-control" type="text" id="campo-direccion" name="campo-direccion"
-                placeholder="(Opcional)" aria-label="Campo de dirección de despacho" required>
+              <input class="form-control" type="text" id="campo-password" name="campo-password"
+                placeholder="Contraseña" aria-label="Campo de contraseña" required>
             </div>
             <div class="row rows-col-2 py-3 text-center">
-              <div class="col"><button type="button" class="btn btn-danger" id="limpiar-form">Limpiar</button></div>
-              <div class="col"><button type="submit" class="btn btn-primary">Enviar</button></div>
+              <div class="col"><button type="submit" class="btn btn-primary" id="limpiar-form">Ingresar</button></div>
+              <div class="col"><button type="button" class="btn btn-danger">Olvidé mi contraseña</button></div>
             </div>
           </form>
         </div>
@@ -147,69 +116,36 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     $(function () {
-      // 18 años mínimo
-      var maxDate = new Date();
-      maxDate.setFullYear(maxDate.getFullYear() - 18);
-      $.datepicker.setDefaults(
-        $.extend(
-          $.datepicker.regional['es']
-        )
-      );
-      // Habilitar datepicker
-      $("#campo-fecha-nacimiento").datepicker({
-        maxDate: maxDate,
-        dateFormat: "dd/mm/yy",
-        beforeShowDay: function (date) {
-          return [date.getTime() <= maxDate.getTime()];
-        }
-      });
-      // JqueryValidation defaults
       $.validator.setDefaults({
         errorClass: "field-error"
       });
       // JqueryValidation validaciones
-      $("#registro-form").validate({
+      $("#login-form").validate({
         rules: {
           "campo-nickname": {
-            pattern: /^[a-zA-Z0-9]*$/
-          },
-          "campo-email": {
-            pattern: /^[a-z0-9_]+@[a-z0-9_]+\.[a-z0-9_]{2,}$/i
+            required:true
           },
           "campo-password": {
-            pattern: /^(?=.*[A-Z])(?=.*\d).+$/
+            required:true
           },
-          "campo-password-2": {
-            equalTo: "#campo-password"
-          }
         },
         messages: {
           "campo-nickname": {
-            pattern: "No debe contener espacios ni carácteres especiales."
-          },
-          "campo-email": {
-            pattern: "Por favor, escribe una dirección de correo válida."
+            required: "Debes ingresar tu nombre de usuario."
           },
           "campo-password": {
-            pattern: "Debe contener al menos una mayúscula y un número."
+            required: "Debes ingresar tu contraseña."
           },
-          "campo-password-2": {
-            equalTo: "Las contraseñas no coinciden."
-          }
         },
         submitHandler: function () {
-          alert("¡Registro exitoso!");
+          alert("¡Inicio de sesión exitoso!");
         }
+        
       });
-      // Limpiar form
-      $("#limpiar-form").click(function(){
-          $('#registro-form')[0].reset();
-        })
-      // Submit form
-      $('#registro-form').submit(function(event) {
+      $('#login-form').submit(function(event) {
         event.preventDefault();
         this.submit();
-        })
+      })
     });
   </script>
 </body>
