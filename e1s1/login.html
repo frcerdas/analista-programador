@@ -139,13 +139,10 @@
         },
         submitHandler: function () {
           alert("¡Inicio de sesión exitoso!");
-        }
-        
+          this.submit();
+        },
       });
-      $('#login-form').submit(function(event) {
-        event.preventDefault();
-        this.submit();
-      })
+      
     });
   </script>
 </body>

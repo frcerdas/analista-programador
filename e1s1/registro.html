@@ -199,16 +199,12 @@
         },
         submitHandler: function () {
           alert("¡Registro exitoso!");
+          this.submit();
         }
       });
       // Limpiar form
       $("#limpiar-form").click(function(){
           $('#registro-form')[0].reset();
-        })
-      // Submit form
-      $('#registro-form').submit(function(event) {
-        event.preventDefault();
-        this.submit();
         })
     });
   </script>
