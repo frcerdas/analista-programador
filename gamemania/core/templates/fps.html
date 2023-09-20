@@ -1,0 +1,80 @@
+{% extends "page-category.html" %}
+{% load static %}
+{% block titulo_pagina %}FPS{% endblock %}
+{% block titulo_cuerpo %}FPS{% endblock %}
+{% block titulo_bread %}FPS{% endblock %}
+{% block body_class %}fps{% endblock %}
+{% block contenido %}
+    <div id="categorias" class="container py-4">
+      <div class="row">
+        <div class="container">
+          <div class="row row-cols-2">
+            <div class="card">
+              <img
+                src="{% static 'img/callofduty.jpg' %}"
+                class="card-img-top pt-2"
+                alt="Call of Duty"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Call of Duty</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Fecha de lanzamiento: 28 de octubre de 2023
+                </h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Precio: $28.640 CLP
+                </h6>
+                <p class="card-text">
+                  Call of Duty® HQ es compatible con Call of Duty®: Modern
+                  Warfare® II y Call of Duty®: Warzone™.
+                </p>
+                <p class="card-text">
+                  Call of Duty®: Modern Warfare® II sumerge a los jugadores en
+                  un conflicto global sin precedentes que cuenta con el regreso
+                  de los icónicos Operadores de la fuerza Operativa 141.
+                </p>
+                <p class="card-text">
+                  Call of Duty®: Warzone™ es la enorme arena de combate gratuita
+                  que cuenta con Battle Royales, Resurgimiento y DMZ.
+                </p>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="{% static 'img/quakeii.jpg' %}"
+                class="card-img-top pt-2"
+                alt="Quake II"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Quake II</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Actualización importante: 10 de agosto de 2023
+                </h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Precio: $28.640 CLP
+                </h6>
+                <p class="card-text">
+                  Call of Duty® HQ es compatible con Call of Duty®: Modern
+                  Warfare® II y Call of Duty®: Warzone™.
+                </p>
+                <p class="card-text">
+                  Quake II, desarrollado por id Software en 1997, es un shooter
+                  en primera persona con ambientación narrativa de ciencia
+                  ficción, que puedes probar en una versión completa y mejorada.
+                </p>
+                <p class="card-text">
+                  Disfruta con la versión original de Quake II, ahora compatible
+                  con hasta 4K* y pantallas panorámicas, mejoras en los modelos,
+                  las animaciones de los enemigos, la sangre, el comportamiento
+                  de la IA y las secuencias cinemáticas, iluminación dinámica y
+                  coloreada, antialiasing, profundidad de campo, la banda sonora
+                  original de Sonic Mayhem y mucho más.
+                </p>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

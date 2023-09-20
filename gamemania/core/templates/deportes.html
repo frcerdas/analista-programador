@@ -1,0 +1,86 @@
+{% extends "page-category.html" %}
+{% load static %}
+{% block titulo_pagina %}Deportes{% endblock %}
+{% block titulo_cuerpo %}Deportes{% endblock %}
+{% block titulo_bread %}Deportes{% endblock %}
+{% block body_class %}deportes{% endblock %}
+{% block contenido %}
+    <div id="categorias" class="container py-4">
+      <div class="row">
+        <div class="container">
+          <div class="row row-cols-2">
+            <div class="card">
+              <img
+                src="{% static 'img/fc24.jpg' %}"
+                class="card-img-top pt-2"
+                alt="EA Sports FC™ 24"
+              />
+              <div class="card-body">
+                <h5 class="card-title">EA Sports FC™ 24</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Fecha de lanzamiento: 29 de septiembre de 2023
+                </h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Precio: $55.900 CLP
+                </h6>
+                <p class="card-text">
+                  EA SPORTS FC 24 es la experiencia futbolística más auténtica
+                  que jamás has vivido con más de 19 mil futbolistas con
+                  licencia, 700 equipos, 30 ligas y 300 socios globales en The
+                  World's Game.
+                </p>
+                <p class="card-text">
+                  HyperMotionV captura los partidos tal y como se juegan gracias
+                  al uso de datos volumétricos de más de 180 partidos de fútbol
+                  masculino y femenino profesionales para recrear los
+                  movimientos reales.
+                </p>
+                <p class="card-text">
+                  Da la bienvenida al fútbol femenino en UltimateTeam: elabora
+                  tu once soñado desde las ligas y competiciones de todo el
+                  mundo, como la WSL, la NWSL, la DIF, la UWCL, la Frauen
+                  Bundesliga y la Liga F.
+                </p>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="{% static 'img/forzahorizon.jpg' %}"
+                class="card-img-top pt-2"
+                alt="Forza Horizon 5"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Forza Horizon 5</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Actualización importante: 8 de noviembre de 2021
+                </h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  Precio: $43.900 CLP
+                </h6>
+                <p class="card-text">
+                  ¡Tu aventura definitiva en Horizon te espera! Explora paisajes
+                  dinámicos y en constante evolución del mundo abierto de México
+                  con una acción de conducción ilimitada y divertida en cientos
+                  de los mejores coches del mundo.
+                </p>
+                <p class="card-text">
+                  Lidera impresionantes expediciones a través de los paisajes
+                  dinámicos y en constante evolución del mundo abierto de México
+                  con una acción de conducción ilimitada y divertida en cientos
+                  de los mejores coches del mundo.
+                </p>
+                <p class="card-text">
+                  Explora un mundo de llamativo contraste y belleza. Descubre
+                  desiertos vivos, exuberantes selvas, ciudades históricas,
+                  ruinas escondidas, playas inmaculadas, vastos cañones y un
+                  imponente volcán nevado.
+                </p>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
