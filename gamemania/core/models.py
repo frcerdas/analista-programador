@@ -14,7 +14,7 @@ class UserProfile(models.Model):
 class Genero(models.Model):
     idGenero = models.AutoField(primary_key=True)
     nombreGenero = models.CharField(max_length=50, verbose_name='Nombre del Género')
-    imagen = models.ImageField(upload_to='core/static/img/', null=True, blank=True)
+    imagen = models.ImageField(upload_to='img/', null=True, blank=True)
     
     def __str__(self):
         return self.nombreGenero
@@ -25,7 +25,7 @@ class Videojuego(models.Model):
     descripcion = models.TextField(null=True, blank=True, verbose_name='Descripcion del videojuego')
     fechalanzamiento = models.DateField(null=True, blank=True, verbose_name='Fecha de lanzamiento del videojuego')
     precio = models.IntegerField(verbose_name='Precio del videojuego')
-    imagen = models.ImageField(upload_to='core/static/img/', null=True, blank=True)
+    imagen = models.ImageField(upload_to='img/', null=True, blank=True)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     
     def __str__(self):

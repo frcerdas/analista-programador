@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e_$r+@ft!utuduf2frw=e16+^*bpg_-dmf5^i-ya4hmp-h2^l1'
+SECRET_KEY = 'django-insecure-cp-($(uwo=y=i@sa&@(-8v=8@+vw8i$x^=an9=v*!dlx--7f-y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,13 +32,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.CoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'core',
+    'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE = [
@@ -124,9 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'core/static/'
 
-STATICFILES_DIRS=(os.path.join(BASE_DIR,'core/static'),)
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "core/static/"),
+   ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
