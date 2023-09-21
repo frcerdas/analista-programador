@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Categoria, Videojuego
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def inicio(request):
@@ -21,3 +22,7 @@ def login(request):
 
 def registro(request):
     return render(request, 'main/registro.html')
+
+@login_required
+def addgame(request):
+     return addgame(request, 'main/addgame.html')

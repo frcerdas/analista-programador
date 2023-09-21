@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameManía.cl - Agregar juego</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/black-tie/jquery-ui.css" />
+  <link rel="stylesheet" href="assets/css/jquery-ui.theme.css" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body data-bs-theme="dark" class="page-login">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'inicio' %}"><img src="{%static 'img/logo-gamemania-chile.png' %}"
+          alt="GameMania Chile" /></a>
+      <div class="d-flex flex-row-reverse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Categorías
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{% url 'fps' %}">FPS</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'deportes' %}">Deportes</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'aventura' %}">Aventura</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'ingenio' %}">Ingenio</a>
+                </li>
+                <li><a class="dropdown-item" href="{% url 'rpg' %}">RPG</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'registro' %}">Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Carrito de compra</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div id="slider" class="container-fluid text-center">
+    <div class="bg"></div>
+    <div class="row align-items-center">
+      <h2>Agregar juego</h2>
+      <p>
+        <a href="index.html">Inicio</a> >
+        <strong>Agregar juego</strong>
+      </p>
+      <p class="header-desc">
+        Agregar un juego.
+      </p>
+    </div>
+  </div>
+  <div id="registro" class="container py-4">
+    <div class="row">
+      <div class="container py-3">
+        <div class="col-md-6 align-self-center">
+          <form action="{% url 'login' %}" method="POST" id="login-form">
+            {% csrf_token %}
+            {% if error %}
+            <small class="text-danger">{{ error }}</small>
+            {% endif %}
+            {% comment %} {% if messages %}
+            {% for message in messages %}
+                <small class="text-success">{{ message }}</small>
+            {% endfor %}
+        {% endif %} {% endcomment %}
+            <div class="mb-3">
+              <label for="campo-titulo">Ingresa el título</label>
+              <input class="form-control" id="campo-titulo" name="campo-titulo" type="text"
+                placeholder="Nombre del videojuego" aria-label="Campo de nombre de usuario" required>
+            </div>
+            <div class="mb-3">
+              <label for="campo-categoria" class="form-label">Selecciona la categoria</label>
+              <select class="form-select" id="campo-categoria" aria-label="Default select example" name="campo-categoria">
+              {% for categoria in categorias %}
+                  <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+               {% endfor %}
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="campo-lanzamiento">Ingresa la fecha de lanzamiento</label>
+              <input class="form-control" id="campo-lanzamiento" name="campo-lanzamiento" type="text"
+                placeholder="28 de octubre de 2023" aria-label="Campo de fecha de lanzamiento" required>
+            </div>
+            <div class="mb-3">
+              <label for="campo-precio">Ingresa el precio</label>
+              <input class="form-control" id="campo-precio" name="campo-precio" type="text"
+                placeholder="$34.990" aria-label="Campo de precio" required>
+            </div>
+            <div class="mb-3">
+              <label for="campo-descripción">Ingresa la descripción</label>
+              <textarea class="form-control" id="campo-descripción" name="campo-descripción" placeholder="Ingresa la descripción" aria-label="Campo de descripción" required></textarea>
+            </div>
+            <div class="row rows-col-2 py-3 text-center">
+              <div class="col"><button type="submit" class="btn btn-primary" id="limpiar-form">Ingresar</button></div>
+              <div class="col"><button type="button" class="btn btn-danger">Olvidé mi contraseña</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+  <script src="assets/js/datepicker-es.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+    integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"
+    integrity="sha512-6S5LYNn3ZJCIm0f9L6BCerqFlQ4f5MwNKq+EthDXabtaJvg3TuFLhpno9pcm+5Ynm6jdA9xfpQoMz2fcjVMk9g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_es.min.js"
+    integrity="sha512-v0vjOquuhHQslRkq1a5BwUIyKSD7ZbgFfQv4jzSBGwbIVTCOs5JQdotZVoRjPRzb9UToTvuP2kdR5CVE4TLgMw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(function () {
+      $.validator.setDefaults({
+        errorClass: "field-error"
+      });
+      // JqueryValidation validaciones
+      $("#login-form").validate({
+        rules: {
+          "campo-nickname": {
+            required:true
+          },
+          "campo-password": {
+            required:true
+          },
+        },
+        messages: {
+          "campo-nickname": {
+            required: "Debes ingresar tu nombre de usuario."
+          },
+          "campo-password": {
+            required: "Debes ingresar tu contraseña."
+          },
+        },
+        submitHandler: function () {
+          alert("¡Inicio de sesión exitoso!");
+          this.submit();
+        },
+      });
+      
+    });
+  </script>
+</body>
+
+</html>
