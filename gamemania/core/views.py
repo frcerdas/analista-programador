@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Categoria
+from .models import Categoria, Videojuego
 
 # Create your views here.
 def inicio(request):
@@ -12,7 +12,9 @@ def categorias(request):
 
 def categoria_detail(request, slug_categoria):
     categoria = get_object_or_404(Categoria, slug_categoria=slug_categoria)
-    return render(request, 'main/page-category.html', {'categoria': categoria})
+    videojuegos_aventura = Videojuego.objects.filter(categoria=categoria)
+
+    return render(request, 'main/page-category.html', {'categoria': categoria, 'videojuegos_aventura': videojuegos_aventura})
 
 def login(request):
     return render(request, 'main/login.html')

@@ -6,7 +6,7 @@ from .views import inicio, categoria_detail, login, registro
 
 urlpatterns = [
     path('', inicio, name='inicio'),
-    path('categoria/<str:nombre_categoria>/', categoria_detail, name='categoria_detail'),
+    path('categoria/<str:slug_categoria>/', categoria_detail, name='categoria_detail'),
     path('login/', login, name='login'),
     path('registro/', registro, name='registro'),
 ]
