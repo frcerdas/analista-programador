@@ -1,10 +1,12 @@
 from django.urls import path
-from .views import gamemania, categorias, categoria_detail
+from .views import inicio, categoria_detail, login, registro
 
-app_name = "core"   
+# app_name = "core"   
 
 
 urlpatterns = [
-    path('', gamemania, name='inicio'),
+    path('', inicio, name='inicio'),
     path('categoria/<str:nombre_categoria>/', categoria_detail, name='categoria_detail'),
+    path('login/', login, name='login'),
+    path('registro/', registro, name='registro'),
 ]
