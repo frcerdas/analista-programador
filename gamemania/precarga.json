@@ -1,42 +1,47 @@
 [
     {
-        "model": "core.genero", 
+        "model": "core.categoria", 
         "pk": 1, 
         "fields": {
-            "nombreGenero": "AVENTURA", 
-            "imagen": "img/aventura.jpg"
+            "nombreCategoria": "AVENTURA", 
+            "imagen": "img/aventura.jpg",
+            "slug_categoria": "aventura"
         }
     },
     {
-        "model": "core.genero", 
+        "model": "core.categoria", 
         "pk": 2, 
         "fields": {
-            "nombreGenero": "FIRST PLAYER SHOOTER", 
-            "imagen": "img/fps.jpg"
+            "nombreCategoria": "FIRST PLAYER SHOOTER", 
+            "imagen": "img/fps.jpg",
+            "slug_categoria": "fps"
         }
     },
     {
-        "model": "core.genero", 
+        "model": "core.categoria", 
         "pk": 3, 
         "fields": {
-            "nombreGenero": "DEPORTES", 
-            "imagen": "img/deportes.jpg"
+            "nombreCategoria": "DEPORTES", 
+            "imagen": "img/deportes.jpg",
+            "slug_categoria": "deportes"
         }
     },
     {
-        "model": "core.genero", 
+        "model": "core.categoria", 
         "pk": 4, 
         "fields": {
-            "nombreGenero": "INGENIO", 
-            "imagen": "img/ingenio.jpg"
+            "nombreCategoria": "INGENIO", 
+            "imagen": "img/ingenio.jpg",
+            "slug_categoria": "ingenio"
         }
     },
     {
-        "model": "core.genero", 
+        "model": "core.categoria", 
         "pk": 5, 
         "fields": {
-            "nombreGenero": "ROLE PLAYING GAME", 
-            "imagen": "img/rpg.jpg"
+            "nombreCategoria": "ROLE PLAYING GAME", 
+            "imagen": "img/rpg.jpg",
+            "slug_categoria": "rpg"
         }
     },
     {
@@ -48,7 +53,7 @@
             "fechalanzamiento": "2015-04-14", 
             "precio": 19938, 
             "imagen": "img/gta5.jpg", 
-            "genero": 1
+            "categoria": 1
         }
     },
     {
@@ -60,7 +65,7 @@
             "fechalanzamiento": "2013-06-09", 
             "precio": 35231, 
             "imagen": "img/dota2.jpg", 
-            "genero": 1
+            "categoria": 1
         }
     },
     {
@@ -72,7 +77,7 @@
             "fechalanzamiento": "2023-10-23", 
             "precio": 28640, 
             "imagen": "img/callofduty.jpg", 
-            "genero": 2
+            "categoria": 2
         }
     },
     {
@@ -84,7 +89,7 @@
             "fechalanzamiento": "2023-08-10", 
             "precio": 28640, 
             "imagen": "img/quakeii.jpg", 
-            "genero": 2
+            "categoria": 2
         }
     },
     {
@@ -96,7 +101,7 @@
             "fechalanzamiento": "2023-09-29", 
             "precio": 55990, 
             "imagen": "img/fc24.jpg", 
-            "genero": 3
+            "categoria": 3
         }
     },
     {
@@ -108,7 +113,7 @@
             "fechalanzamiento": "2021-11-08", 
             "precio": 43900, 
             "imagen": "img/forzahorizon.jpg", 
-            "genero": 3
+            "categoria": 3
         }
     },
     {
@@ -120,7 +125,7 @@
             "fechalanzamiento": "2022-05-19", 
             "precio": 7700, 
             "imagen": "img/eternalthreads.jpg", 
-            "genero": 4
+            "categoria": 4
         }
     },
     {
@@ -132,7 +137,7 @@
             "fechalanzamiento": "2022-11-08", 
             "precio": 6900, 
             "imagen": "img/alittletotheleft.jpg", 
-            "genero": 4
+            "categoria": 4
         }
     },
     {
@@ -144,7 +149,7 @@
             "fechalanzamiento": "2017-09-14", 
             "precio": 39000, 
             "imagen": "img/divinityoriginalsin2.jpg", 
-            "genero": 5
+            "categoria": 5
         }
     },
     {
@@ -156,7 +161,7 @@
             "fechalanzamiento": "2022-02-24", 
             "precio": 50990, 
             "imagen": "img/eldenring.jpg", 
-            "genero": 5
+            "categoria": 5
         }
     }
   ]
