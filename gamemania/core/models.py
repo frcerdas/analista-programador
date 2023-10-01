@@ -30,7 +30,7 @@ class Videojuego(models.Model):
     idVideojuego = models.AutoField(primary_key=True)
     nombreVideojuego = models.CharField(max_length=50, verbose_name='Nombre del videojuego')
     descripcion = models.TextField(null=True, blank=True, verbose_name='Descripcion del videojuego')
-    fechalanzamiento = models.DateField(null=True, blank=True, verbose_name='Fecha de lanzamiento del videojuego')
+    fechaLanzamiento = models.DateField(null=True, blank=True, verbose_name='Fecha de lanzamiento del videojuego')
     precio = models.IntegerField(verbose_name='Precio del videojuego')
     imagen = models.ImageField(upload_to='img/', null=True, blank=True)
     categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.CASCADE)
