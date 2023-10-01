@@ -93,11 +93,6 @@
             {% if error %}
             <small class="text-danger">{{ error }}</small>
             {% endif %}
-            {% comment %} {% if messages %}
-            {% for message in messages %}
-                <small class="text-success">{{ message }}</small>
-            {% endfor %}
-        {% endif %} {% endcomment %}
             <div class="mb-3">
               <label for="campo-nickname">Ingresa tu nombre de usuario</label>
               <input class="form-control" id="campo-nickname" name="campo-nickname" type="text"
@@ -108,12 +103,6 @@
               <input class="form-control" type="password" id="campo-password" name="campo-password"
                 placeholder="Contraseña" aria-label="Campo de contraseña" required>
             </div>
-            <div class="form-group">
-              <label for="role">Selecciona tu rol</label>
-              <select class="form-control" id="role" name="role">
-                  <option value="admin">Administrador</option>
-                  <option value="cliente">Cliente</option>
-              </select>
           </div>
             <div class="row rows-col-2 py-3 text-center">
               <div class="col"><button type="submit" class="btn btn-primary" id="limpiar-form">Ingresar</button></div>
@@ -163,13 +152,8 @@
           "campo-password": {
             required: "Debes ingresar tu contraseña."
           },
-        },
-        submitHandler: function () {
-          alert("¡Inicio de sesión exitoso!");
-          this.submit();
-        },
+        }
       });
-      
     });
   </script>
 </body>
