@@ -12,16 +12,18 @@ def categorias(request):
     return render(request, 'categorias.html', {'categorias': categorias})
 
 def categoria_detail(request, slug_categoria):
+    categorias = Categoria.objects.all()
     categoria = get_object_or_404(Categoria, slug_categoria=slug_categoria)
-    videojuegos_aventura = Videojuego.objects.filter(categoria=categoria)
-
-    return render(request, 'main/page-category.html', {'categoria': categoria, 'videojuegos_aventura': videojuegos_aventura})
+    videojuegos_por_categoria = Videojuego.objects.filter(categoria=categoria)
+    return render(request, 'main/page-category.html', {'categoria': categoria, 'categorias': categorias, 'videojuegos_por_categoria': videojuegos_por_categoria})
 
 def login(request):
-    return render(request, 'main/login.html')
+    categoria = Categoria.objects.all()
+    return render(request, 'main/login.html',context={'categoria':categoria})
 
 def registro(request):
-    return render(request, 'main/registro.html')
+    categoria = Categoria.objects.all()
+    return render(request, 'main/registro.html',context={'categoria':categoria})
 
 @login_required
 def addgame(request):

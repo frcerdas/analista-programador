@@ -3,7 +3,7 @@
         "model": "core.categoria", 
         "pk": 1, 
         "fields": {
-            "nombreCategoria": "AVENTURA", 
+            "nombreCategoria": "Aventura", 
             "imagen": "img/aventura.jpg",
             "slug_categoria": "aventura"
         }
@@ -12,7 +12,7 @@
         "model": "core.categoria", 
         "pk": 2, 
         "fields": {
-            "nombreCategoria": "FIRST PLAYER SHOOTER", 
+            "nombreCategoria": "First Player Shooter", 
             "imagen": "img/fps.jpg",
             "slug_categoria": "fps"
         }
@@ -21,7 +21,7 @@
         "model": "core.categoria", 
         "pk": 3, 
         "fields": {
-            "nombreCategoria": "DEPORTES", 
+            "nombreCategoria": "Deportes", 
             "imagen": "img/deportes.jpg",
             "slug_categoria": "deportes"
         }
@@ -30,7 +30,7 @@
         "model": "core.categoria", 
         "pk": 4, 
         "fields": {
-            "nombreCategoria": "INGENIO", 
+            "nombreCategoria": "Ingenio", 
             "imagen": "img/ingenio.jpg",
             "slug_categoria": "ingenio"
         }
@@ -39,7 +39,7 @@
         "model": "core.categoria", 
         "pk": 5, 
         "fields": {
-            "nombreCategoria": "ROLE PLAYING GAME", 
+            "nombreCategoria": "Role Playing Game", 
             "imagen": "img/rpg.jpg",
             "slug_categoria": "rpg"
         }
@@ -48,7 +48,7 @@
         "model": "core.videojuego", 
         "pk": 1, 
         "fields": {
-            "nombreVideojuego": "GRAND THEFT AUTO V", 
+            "nombreVideojuego": "Grand Theft Auto V", 
             "descripcion": "Cuando un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven involucrados con lo peor y más desquiciado del mundo criminal, del gobierno de los EE. UU. y de la industria del espectáculo, tendrán que llevar a cabo una serie de peligrosos golpes para sobrevivir en una ciudad implacable en la que no pueden confiar en nadie. Y mucho menos los unos en los otros.\r\n\r\nGrand Theft Auto V para PC ofrece a los jugadores la opción de explorar el galardonado mundo de Los Santos y el condado de Blaine con una resolución de 4K y disfrutar del juego a 60 fotogramas por segundo.\r\n\r\nEl juego cuenta con múltiples y variadas opciones de personalización específicas para ordenadores, con más de 25 ajustes configurables distintos para la calidad de las texturas, shader, teselado, antialiasing y muchos otros elementos, además de opciones de personalización del ratón y el teclado. También es posible modificar la densidad de población para controlar el tráfico de vehículos y peatones, y es compatible con dos y tres monitores, 3D y mandos \"\"plug-and-play\"\".", 
             "fechalanzamiento": "2015-04-14", 
             "precio": 19938, 
@@ -60,7 +60,7 @@
         "model": "core.videojuego", 
         "pk": 2, 
         "fields": {
-            "nombreVideojuego": "DOTA 2", 
+            "nombreVideojuego": "Dota 2", 
             "descripcion": "Cada día, millones de jugadores de todo el mundo entran en batalla como uno de los más de cien héroes de Dota. Y no importa si es su décima hora de juego o la milésima, siempre hay algo nuevo que descubrir. Con frecuentes actualizaciones que garantizan una evolución constante de jugabilidad, características y héroes, Dota 2 realmente ha cobrado vida propia. Cuando se trata de variedad de héroes, habilidades y poderosos objetos, Dota no tiene límite. No hay dos partidas iguales. Cada héroe puede desempeñar varios roles, y hay multitud de objetos para ayudar a satisfacer las necesidades de cada partida. Dota no pone límites a tu forma de jugar, te da el poder de expresar tu propio estilo. El equilibrio competitivo es la joya de la corona de Dota, y para garantizar que todo el mundo juegue en un campo de batalla equilibrado, el contenido principal del juego —como el vasto grupo de héroes— está disponible para todos los jugadores. Los fans pueden coleccionar objetos cosméticos para los héroes y divertidos complementos para el mundo en que estos habitan, pero todo lo necesario para jugar ya está ahí antes de que te unas a tu primera partida.", 
             "fechalanzamiento": "2013-06-09", 
             "precio": 35231, 
@@ -72,7 +72,7 @@
         "model": "core.videojuego", 
         "pk": 3, 
         "fields": {
-            "nombreVideojuego": "CALL OF DUTY", 
+            "nombreVideojuego": "Call of Duty", 
             "descripcion": "Call of Duty® HQ es compatible con Call of Duty®: Modern Warfare® II y Call of Duty®: Warzone™. Call of Duty®: Modern Warfare® II sumerge a los jugadores en un conflicto global sin precedentes que cuenta con el regreso de los icónicos Operadores de la fuerza Operativa 141. Call of Duty®: Warzone™ es la enorme arena de combate gratuita que cuenta con Battle Royales, Resurgimiento y DMZ.", 
             "fechalanzamiento": "2023-10-23", 
             "precio": 28640, 
@@ -84,7 +84,7 @@
         "model": "core.videojuego", 
         "pk": 4, 
         "fields": {
-            "nombreVideojuego": "QUAKE II", 
+            "nombreVideojuego": "Quake II", 
             "descripcion": "Quake II, desarrollado por id Software en 1997, es un shooter en primera persona con ambientación narrativa de ciencia ficción, que puedes probar en una versión completa y mejorada. Disfruta con la versión original de Quake II, ahora compatible con hasta 4K* y pantallas panorámicas, mejoras en los modelos, las animaciones de los enemigos, la sangre, el comportamiento de la IA y las secuencias cinemáticas, iluminación dinámica y coloreada, antialiasing, profundidad de campo, la banda sonora original de Sonic Mayhem y mucho más.", 
             "fechalanzamiento": "2023-08-10", 
             "precio": 28640, 
@@ -96,7 +96,7 @@
         "model": "core.videojuego", 
         "pk": 5, 
         "fields": {
-            "nombreVideojuego": "EA SPORTS FC™ 24", 
+            "nombreVideojuego": "EA Sports FC™ 24", 
             "descripcion": "EA SPORTS FC 24 es la experiencia futbolística más auténtica que jamás has vivido con más de 19 mil futbolistas con licencia, 700 equipos, 30 ligas y 300 socios globales en The World's Game. HyperMotionV captura los partidos tal y como se juegan gracias al uso de datos volumétricos de más de 180 partidos de fútbol masculino y femenino profesionales para recrear los movimientos reales. Da la bienvenida al fútbol femenino en UltimateTeam: elabora tu once soñado desde las ligas y competiciones de todo el mundo, como la WSL, la NWSL, la DIF, la UWCL, la Frauen Bundesliga y la Liga F.", 
             "fechalanzamiento": "2023-09-29", 
             "precio": 55990, 
@@ -108,7 +108,7 @@
         "model": "core.videojuego", 
         "pk": 6, 
         "fields": {
-            "nombreVideojuego": "FORZA HORIZON 5", 
+            "nombreVideojuego": "Forza Horizon 5", 
             "descripcion": "¡Tu aventura definitiva en Horizon te espera! Explora paisajes dinámicos y en constante evolución del mundo abierto de México con una acción de conducción ilimitada y divertida en cientos de los mejores coches del mundo. Lidera impresionantes expediciones a través de los paisajes dinámicos y en constante evolución del mundo abierto de México con una acción de conducción ilimitada y divertida en cientos de los mejores coches del mundo. Explora un mundo de llamativo contraste y belleza. Descubre desiertos vivos, exuberantes selvas, ciudades históricas, ruinas escondidas, playas inmaculadas, vastos cañones y un imponente volcán nevado.", 
             "fechalanzamiento": "2021-11-08", 
             "precio": 43900, 
@@ -120,7 +120,7 @@
         "model": "core.videojuego", 
         "pk": 7, 
         "fields": {
-            "nombreVideojuego": "ETERNAL THREADS", 
+            "nombreVideojuego": "Eternal Threads", 
             "descripcion": "Eternal Threads es un juego de rompecabezas narrativo en primera persona de un jugador sobre manipulación temporal, decisiones y consecuencias. Métete en la piel de un agente enviado al norte de Inglaterra en mayo de 2015 para corregir los daños en el flujo temporal que provocaron el fallecimiento de seis personas en el incendio de una casa. Como no te está permitido apagar el incendio, tendrás que manipular las decisiones que tomaron los habitantes de la casa la semana anterior al desastre para que todos sobrevivan. Explora desde el principio como quieras la línea temporal de los sietes días previos al incendio. Observa y modifica los acontecimientos importantes de la semana tantas veces como quieras y en el orden que prefieras. Algunas decisiones solo tendrán efectos menores en la línea temporal, como objetos que cambian de lugar en la casa o historias y secretos más profundos que salen a la luz. Pero si cambias acontecimientos principales, añades nuevos o si los sustituyes completamente, estarás reescribiendo la línea temporal.", 
             "fechalanzamiento": "2022-05-19", 
             "precio": 7700, 
@@ -132,7 +132,7 @@
         "model": "core.videojuego", 
         "pk": 8, 
         "fields": {
-            "nombreVideojuego": "A LITTLE TO THE LEFT", 
+            "nombreVideojuego": "A Little To The Left", 
             "descripcion": "Eternal Threads es un juego de rompecabezas narrativo en primera persona de un jugador sobre manipulación temporal, decisiones y consecuencias. Métete en la piel de un agente enviado al norte de Inglaterra en mayo de 2015 para corregir los daños en el flujo temporal que provocaron el fallecimiento de seis personas en el incendio de una casa. Como no te está permitido apagar el incendio, tendrás que manipular las decisiones que tomaron los habitantes de la casa la semana anterior al desastre para que todos sobrevivan. Explora desde el principio como quieras la línea temporal de los sietes días previos al incendio. Observa y modifica los acontecimientos importantes de la semana tantas veces como quieras y en el orden que prefieras. Algunas decisiones solo tendrán efectos menores en la línea temporal, como objetos que cambian de lugar en la casa o historias y secretos más profundos que salen a la luz. Pero si cambias acontecimientos principales, añades nuevos o si los sustituyes completamente, estarás reescribiendo la línea temporal.", 
             "fechalanzamiento": "2022-11-08", 
             "precio": 6900, 
@@ -144,7 +144,7 @@
         "model": "core.videojuego", 
         "pk": 9, 
         "fields": {
-            "nombreVideojuego": "DIVINITY: ORIGINAL SIN 2 - DEFINITIVE EDITION", 
+            "nombreVideojuego": "Divinity: Original Sin 2 - Definitive Edition", 
             "descripcion": "Divinity: Original Sin 2 - Definitive Edition es un juego de rol de mundo abierto de la nueva generación, cuyo elemento principal es la narrativa, desarrollado en un mundo en expansión con una historia que reacciona a quién eres y a lo que has hecho. Juega en la piel de uno de los seis originales personajes de origen, con sus respectivas misiones propias, o crea un personaje y atribúyele rasgos para definir tu propia aventura. Los dioses han abandonado Rivellon, pero solo una persona de tu grupo tendrá la oportunidad de convertirse en Divino.", 
             "fechalanzamiento": "2017-09-14", 
             "precio": 39000, 
@@ -156,7 +156,7 @@
         "model": "core.videojuego", 
         "pk": 10, 
         "fields": {
-            "nombreVideojuego": "ELDEN RING", 
+            "nombreVideojuego": "Elden Ring", 
             "descripcion": "Álzate, Sinluz, y que la gracia te guíe para abrazar el poder del Círculo de Elden y encumbrarte como señor del Círculo en las Tierras Interimgs. Un vasto mundo perfectamente conectado en el que los territorios abiertos estarán repletos de situaciones y mazmorras enormes con diseños complejos y tridimensionales. Mientras exploras, experimentarás el deleite de descubrir amenazas desconocidas y sobrecogedoras, y eso te haré sentir la emoción de la superación. Además de personalizar la apariencia de tu personaje, puedes combinar libremente las armas, armaduras y la magia que te equipas. Puedes desarrollar a tu personaje según tu estilo de juego, tanto para aumentar tu fuerza bruta y ser un guerrero poderoso, como para dominar la magia. Una historia muy profunda contada en fragmentos. Un drama épico en el que las motivaciones de cada personaje se encuentran en las Tierras Interimgs.", 
             "fechalanzamiento": "2022-02-24", 
             "precio": 50990, 
