@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Categoria, Videojuego
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -35,10 +35,15 @@ def inicio_sesion(request):
     categoria = Categoria.objects.all()
     return render(request, 'main/auth/login.html',context={'categoria':categoria})
 
+def cerrar_sesion(request):
+    logout(request)
+    categoria = Categoria.objects.all()
+    return render(request, 'main/auth/login.html',context={'categoria':categoria})
+
 def registro(request):
     categoria = Categoria.objects.all()
     return render(request, 'main/registro.html',context={'categoria':categoria})
 
 @login_required
 def addgame(request):
-     return addgame(request, 'main/addgame.html')
+    return addgame(request, 'main/addgame.html')
