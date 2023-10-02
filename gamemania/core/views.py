@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Categoria, Videojuego
+from .models import Usuario, Categoria, Videojuego
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import CategoriaForm, VideojuegoForm
 from .decorators import role_required
 from .forms import CategoriaForm
-from .models import Usuario, Categoria, Videojuego
 
 
 
