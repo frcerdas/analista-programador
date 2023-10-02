@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameManía.cl</title>
+    <title>GameManía.cl - {% block titulo_pagina %}{% endblock %}</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -19,7 +19,10 @@
     />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body data-bs-theme="dark">
+  <body
+    data-bs-theme="dark"
+    class="page-category category-{% block body_class %}{% endblock %}"
+  >
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'inicio' %}"
@@ -54,19 +57,27 @@
                 </a>
                 <ul class="dropdown-menu">
                   {% for p in categorias %}
-                  <li><a class="nav-link" href="/categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
+                  <li>
+                    <a class="nav-link" href="categoria/{{p.slug_categoria}}"
+                      >{{ p.nombreCategoria }}</a
+                    >
+                  </li>
                   {% endfor %}
                 </ul>
               </li>
               <li class="nav-item">
-                  <a class="nav-link">Hola, {{ user.username }}!</a>
+                <a class="nav-link">Hola, {{ user.username }}!</a>
               </li>
               <li class="nav-item">
-                <p><a class="nav-link"  href="{% url 'logout' %}">Cerrar Sesión</a></p>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'admin_area' %}" class="nav-link">Administración</a>
-            </li>
+                <p>
+                  <a class="nav-link" href="{% url 'logout' %}"
+                    >Cerrar Sesión</a
+                  >
+                </p>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'admin_area' %}" class="nav-link">Administración</a>
+              </li>
             </ul>
           </div>
           {% else %}
@@ -83,8 +94,12 @@
                   Categoría
                 </a>
                 <ul class="dropdown-menu">
-                  {% for p in categoria %}
-                  <li><a class="nav-link" href="categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
+                  {% for p in categorias %}
+                  <li>
+                    <a class="nav-link" href="/categoria/{{p.slug_categoria}}"
+                      >{{ p.nombreCategoria }}</a
+                    >
+                  </li>
                   {% endfor %}
                 </ul>
               </li>
@@ -93,7 +108,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
-            </li>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'registro' %}">Registro</a>
               </li>
@@ -108,32 +123,55 @@
     </nav>
     <div id="slider" class="container-fluid text-center">
       <div class="bg"></div>
-      {% if request.session %}
-    <p>Perfil: {{ request.session }}</p>
-{% else %}
-    <p>No hay perfil en la sesión.</p>
-{% endif %}
       <div class="row align-items-center">
-        <h2>GameMania Chile</h2>
-        <p>Somos <strong>tu</strong> tienda de juegos online en Chile</p>
-        <a href="#categorias" type="button" class="btn btn-outline-primary"
-          >Ver categorías</a
-        >
+        <h2>Modificar videojuego</h2>
+        <p>
+          <a href="/">Inicio</a> > <a href="/area-administracion">Administración</a> >
+          <strong>Modificar videojuego</strong>
+        </p>
       </div>
     </div>
     <div id="categorias" class="container py-4">
       <div class="row">
-        <h3 class="text-center py-4">Categorías</h3>
         <div class="container">
-          <div class="row row-cols-3">
-            {% for p in categoria %}
-            <div class="col homepage-card">
-              <div class="homepage-card-bg" {% if p.imagen %}style="background-image: url('{{ p.imagen.url }}')" {% endif %}></div>
-              <div class="homepage-card-content d-flex align-items-center justify-content-center">
-                <h4><a href="categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></h4>
-              </div>
+          <div class="row display-flex justify-content-center pb-5">
+            <div class="col-md-10">
+              <table class="table table-striped-columns">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre del Videojuego</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Fecha de Lanzamiento</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for videojuego in videojuegos %}
+                  <tr>
+                    <th scope="row">{{ videojuego.idVideojuego }}</th>
+                    <td>{{ videojuego.nombreVideojuego }}</td>
+                    <td><div style="height:4em;overflow-y:auto;overflow-x:hidden">{{ videojuego.descripcion }}</div></td>
+                    <td>{{ videojuego.fechaLanzamiento }}</td>
+                    <td>${{ videojuego.precio }}</td>
+                    <td>
+                      {% if videojuego.imagen %}
+                        <img src="{{ videojuego.imagen.url }}" alt="{{ videojuego.nombreVideojuego }}" width="100">
+                      {% else %}
+                        No hay imagen disponible
+                      {% endif %}
+                    </td>
+                    <td>{{ videojuego.categoria }}</td>
+                    <td><a href="{% url 'modify_juego' videojuego.idVideojuego %}">Modificar</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              
             </div>
-            {% endfor %}
           </div>
         </div>
       </div>

@@ -1,0 +1,6 @@
+# Ignorar las migraciones de Django
+/gamemania/migrations/
+
+# Ignorar archivos .pyc generados por Python
+/gamemania/__pycache__/
+*.pyc

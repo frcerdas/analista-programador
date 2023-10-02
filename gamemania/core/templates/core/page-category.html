@@ -64,9 +64,9 @@
               <li class="nav-item">
                 <p><a class="nav-link"  href="{% url 'logout' %}">Cerrar Sesión</a></p>
             </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Carrito de compra</a>
-              </li>
+            <li class="nav-item">
+              <a href="{% url 'admin_area' %}" class="nav-link">Administración</a>
+            </li>
             </ul>
           </div>
           {% else %}
@@ -98,7 +98,7 @@
                 <a class="nav-link" href="{% url 'registro' %}">Registro</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Carrito de compra</a>
+                <a href="{% url 'admin_area' %}" class="nav-link">Administración</a>
               </li>
             </ul>
           </div>

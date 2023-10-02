@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
+    "crispy_bootstrap5",
     'core',
     'rest_api'
 ]
@@ -132,7 +134,6 @@ STATICFILES_DIRS = [
    ]
 
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
@@ -144,3 +145,26 @@ ROLES = (
     ('admin', 'Administrador'),
     ('cliente', 'Cliente'),
 )
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'INFO',  # Change this to control log verbosity
+            'class': 'logging.FileHandler',
+            'filename': 'error.log',  # Name of the log file
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',  # Change this to control log verbosity
+            'propagate': True,
+        },
+    },
+}
