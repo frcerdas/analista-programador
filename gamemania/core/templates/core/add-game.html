@@ -34,19 +34,9 @@
                 Categorías
               </a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="{% url 'fps' %}">FPS</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'deportes' %}">Deportes</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'aventura' %}">Aventura</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'ingenio' %}">Ingenio</a>
-                </li>
-                <li><a class="dropdown-item" href="{% url 'rpg' %}">RPG</a></li>
+                {% for p in categorias %}
+                <li><a class="nav-link" href="/categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
+                {% endfor %}
               </ul>
             </li>
             <li class="nav-item">

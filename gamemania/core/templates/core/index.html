@@ -53,8 +53,8 @@
                   Categoría
                 </a>
                 <ul class="dropdown-menu">
-                  {% for p in categoria %}
-                  <li><a class="nav-link" href="categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
+                  {% for p in categorias %}
+                  <li><a class="nav-link" href="/categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
                   {% endfor %}
                 </ul>
               </li>
@@ -106,91 +106,37 @@
         </div>
       </div>
     </nav>
-  <div id="slider" class="container-fluid text-center">
-    <div class="bg"></div>
-    <div class="row align-items-center">
-      <h2>Inicio de Sesión</h2>
-      <p>
-        <a href="index.html">Inicio</a> >
-        <strong>Iniciar Sesión</strong>
-      </p>
-      <p class="header-desc">
-        Conéctate a la red de la legión gamer más grande de Chile.
-      </p>
+    <div id="slider" class="container-fluid text-center">
+      <div class="bg"></div>
+      <div class="row align-items-center">
+        <h2>GameMania Chile</h2>
+        <p>Somos <strong>tu</strong> tienda de juegos online en Chile</p>
+        <a href="#categorias" type="button" class="btn btn-outline-primary"
+          >Ver categorías</a
+        >
+      </div>
     </div>
-  </div>
-  <div id="registro" class="container py-4">
-    <div class="row">
-      <div class="container py-3">
-        <div class="col-md-6 align-self-center">
-          <form action="{% url 'login' %}" method="POST" id="login-form">
-            {% csrf_token %}
-            {% if error %}
-            <small class="text-danger">{{ error }}</small>
-            {% endif %}
-            <div class="mb-3">
-              <label for="campo-nickname">Ingresa tu nombre de usuario</label>
-              <input class="form-control" id="campo-nickname" name="campo-nickname" type="text"
-                placeholder="Usuario" aria-label="Campo de nombre de usuario" required>
+    <div id="categorias" class="container py-4">
+      <div class="row">
+        <h3 class="text-center py-4">Categorías</h3>
+        <div class="container">
+          <div class="row row-cols-3">
+            {% for p in categoria %}
+            <div class="col homepage-card">
+              <div class="homepage-card-bg"  style="background-image: url({{p.imagen.url}})"></div>
+              <div class="homepage-card-content d-flex align-items-center justify-content-center">
+                <h4><a href="categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></h4>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="campo-password">Ingresa tu contraseña</label>
-              <input class="form-control" type="password" id="campo-password" name="campo-password"
-                placeholder="Contraseña" aria-label="Campo de contraseña" required>
-            </div>
+            {% endfor %}
           </div>
-            <div class="row rows-col-2 py-3 text-center">
-              <div class="col"><button type="submit" class="btn btn-primary" id="limpiar-form">Ingresar</button></div>
-              <div class="col"><button type="button" class="btn btn-danger">Olvidé mi contraseña</button></div>
-            </div>
-          </form>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-  </script>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-  <script src="../core/static/js/datepicker-es.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
-    integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"
-    integrity="sha512-6S5LYNn3ZJCIm0f9L6BCerqFlQ4f5MwNKq+EthDXabtaJvg3TuFLhpno9pcm+5Ynm6jdA9xfpQoMz2fcjVMk9g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_es.min.js"
-    integrity="sha512-v0vjOquuhHQslRkq1a5BwUIyKSD7ZbgFfQv4jzSBGwbIVTCOs5JQdotZVoRjPRzb9UToTvuP2kdR5CVE4TLgMw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    $(function () {
-      $.validator.setDefaults({
-        errorClass: "field-error"
-      });
-      // JqueryValidation validaciones
-      $("#login-form").validate({
-        rules: {
-          "campo-nickname": {
-            required:true
-          },
-          "campo-password": {
-            required:true
-          },
-        },
-        messages: {
-          "campo-nickname": {
-            required: "Debes ingresar tu nombre de usuario."
-          },
-          "campo-password": {
-            required: "Debes ingresar tu contraseña."
-          },
-        }
-      });
-    });
-  </script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

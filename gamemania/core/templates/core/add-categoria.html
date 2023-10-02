@@ -53,7 +53,7 @@
                   Categoría
                 </a>
                 <ul class="dropdown-menu">
-                  {% for p in categoria %}
+                  {% for p in categorias %}
                   <li><a class="nav-link" href="categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
                   {% endfor %}
                 </ul>
@@ -83,8 +83,8 @@
                   Categoría
                 </a>
                 <ul class="dropdown-menu">
-                  {% for p in categoria %}
-                  <li><a class="nav-link" href="categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
+                  {% for p in categorias %}
+                  <li><a class="nav-link" href="/categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
                   {% endfor %}
                 </ul>
               </li>
@@ -123,30 +123,19 @@
         <div id="categorias" class="container py-4">
         <div class="row">
             <div class="container">
-            <div class="row row-cols-2">
-                {% for videojuego in videojuegos_por_categoria %}
-                <div class="card">
-                <img
-                    src="{{ videojuego.imagen.url }}"
-                    class="card-img-top pt-2"
-                    alt="{{ videojuego.nombreVideojuego }}"
-                />
-                <div class="card-body">
-                    <h5 class="card-title">{{ videojuego.nombreVideojuego }}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Fecha de lanzamiento: {{videojuego.fechaLanzamiento}}
-                    </h6>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                    Precio: {{videojuego.precio}} CLP
-                    </h6>
-                    <p class="card-text">
-                    {{videojuego.descripcion}}
-                    </p>
-                    <button type="button" class="btn btn-primary">Comprar</button>
+                <div class="row">
+                    <div class="col">
+                        <form method="post" action="" id="formulario-categoria">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{form.as_table}}
+                            </div>
+                            <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
+                            <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                            <div id="error" class="alert alert-danger" role="alert"></div>
+                        </form>
+                    </div>
                 </div>
-                </div>
-                {% endfor %}
-            </div>
             </div>
         </div>
         </div>
