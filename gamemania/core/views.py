@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Categoria, Videojuego
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .forms import CategoriaForm
 
 # Create your views here.
 def inicio(request):
@@ -30,9 +31,16 @@ def categoria_detail(request, slug_categoria):
     return render(request,'core/page-category.html',context)
 
 def add_categoria(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = CategoriaForm()
     categorias = Categoria.objects.all()
     context = {
-         'categorias': categorias
+         'categorias': categorias,
+         'form': form
     }
     return render(request,'core/add-categoria.html', context)
 
