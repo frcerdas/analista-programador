@@ -2,15 +2,20 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Categoria, Videojuego
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import CategoriaForm, VideojuegoForm
 from .decorators import role_required
+from .forms import CategoriaForm
+from .models import Usuario, Categoria, Videojuego
+
+
 
 # Create your views here.
 def inicio(request):
     categoria = Categoria.objects.all()
     context = {
-         'categoria': categoria
+        'categoria': categoria
     }
     return render(request,'core/index.html',context)
 
@@ -18,14 +23,14 @@ def inicio(request):
 def admin_area(request):
     categoria = Categoria.objects.all()
     context = {
-         'categoria': categoria
+        'categoria': categoria
     }
     return render(request,'core/admin-area.html',context)
 
 def categorias(request):
     categorias = Categoria.objects.all()
     context = {
-         'categorias': categorias
+        'categorias': categorias
     }
     return render(request,'core/categorias.html',context)
 
@@ -62,9 +67,9 @@ def add_categoria(request):
         form = CategoriaForm()
     categorias = Categoria.objects.all()
     context = {
-         'categorias': categorias,
-         'form': form,
-         'alert_class': alert_class
+        'categorias': categorias,
+        'form': form,
+        'alert_class': alert_class
     }
     return render(request,'core/add-categoria.html', context)
 
@@ -108,9 +113,9 @@ def add_juego(request):
         form = VideojuegoForm()
     categorias = Videojuego.objects.all()
     context = {
-         'categorias': categorias,
-         'form': form,
-         'alert_class': alert_class
+        'categorias': categorias,
+        'form': form,
+        'alert_class': alert_class
     }
     return render(request,'core/add-juego.html', context)
 
@@ -148,7 +153,7 @@ def inicio_sesion(request):
             context = {
                 'error' : 'Error, intente nuevamente'
             }
-            return render(request,'core/index.html',context)
+            return render(request,'core/auth/login.html',context)
     categoria = Categoria.objects.all()
     context = {
         'categoria': categoria
@@ -163,7 +168,37 @@ def cerrar_sesion(request):
         }
     return render(request, 'core/auth/login.html', context)
 
+def exists_user(username):
+    try:
+        User.objects.get(username=username)     
+        return True
+    except User.DoesNotExist:
+        return False
+
 def registro(request):
+    context = {}
+    if request.method == 'POST':
+        try:
+            nombre = request.POST.get('campo-nombre')
+            username = request.POST.get('campo-nickname')
+            email = request.POST.get('campo-email')
+            password = request.POST.get('campo-password')
+            password2 = request.POST.get('campo-password-2')
+            nacimiento = request.POST.get('campo-fecha-nacimiento')
+            direccion = request.POST.get('campo-direccion')
+            
+            if exists_user(username):
+                raise Exception('El Username ya existe')
+            
+            User.objects.create_user(username=username, first_name=nombre, last_name='null', email=email, password=password)
+
+            # user = User.objects.create_user(username=username, first_name=nombre, last_name='null', email=email, password=password)
+            # role = 'cliente'
+            # Usuario.objects.create(user=user, role=role, fecha_nacimiento=nacimiento, direccion=direccion)
+            
+            return render(request, 'core/index.html')
+        except Exception as e:
+            context = { 'error': e.__str__() }
     categoria = Categoria.objects.all()
     context = {
         'categoria': categoria

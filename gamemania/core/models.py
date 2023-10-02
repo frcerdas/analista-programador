@@ -12,6 +12,12 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username + ' - ' + self.role
 
+class Usuario(models.Model):
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    role = models.CharField(max_length=20, choices=settings.ROLES)
+    fecha_nacimiento = models.DateField()
+    direccion = models.CharField(max_length=100)
+
 class Categoria(models.Model):
     idCategoria = models.AutoField(primary_key=True)
     nombreCategoria = models.CharField(max_length=50, verbose_name='Nombre de la Categoría')

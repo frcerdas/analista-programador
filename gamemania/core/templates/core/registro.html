@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/black-tie/jquery-ui.css" />
-  <link rel="stylesheet" href="assets/css/jquery-ui.theme.css" />
+  <link rel="stylesheet" href="../core/static/js/datepicker-es.js" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 
@@ -120,7 +120,8 @@
     <div class="row">
       <div class="container py-3">
         <div class="col-md-6 align-self-center">
-          <form id="registro-form">
+          <form id="registro-form" form action="{% url 'registro' %}" method="POST">
+{% csrf_token %}
             <div class="mb-3">
               <label for="campo-nombre" class="form-label">Ingresa tu nombre</label>
               <input class="form-control" id="campo-nombre" name="campo-nombre" type="text"
@@ -158,7 +159,7 @@
             <div class="mb-3">
               <label for="campo-direccion" class="form-label">Ingresa dirección de despacho</label>
               <input class="form-control" type="text" id="campo-direccion" name="campo-direccion"
-                placeholder="(Opcional)" aria-label="Campo de dirección de despacho" required>
+                placeholder="(Opcional)" aria-label="Campo de dirección de despacho">
             </div>
             <div class="row rows-col-2 py-3 text-center">
               <div class="col"><button type="button" class="btn btn-danger" id="limpiar-form">Limpiar</button></div>
@@ -176,7 +177,7 @@
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
     integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-  <script src="assets/js/datepicker-es.js"></script>
+  <script src="../core/static/js/datepicker-es.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
     integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
