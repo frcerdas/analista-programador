@@ -39,37 +39,6 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          {% if user.is_authenticated %}
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Categoría
-                </a>
-                <ul class="dropdown-menu"> 
-                  {% for p in categorias %}
-                  <li><a class="nav-link" href="/categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
-                  {% endfor %}
-                </ul>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link">Hola, {{ user.username }}!</a>
-              </li>
-              <li class="nav-item">
-                <p><a class="nav-link"  href="{% url 'logout' %}">Cerrar Sesión</a></p>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'admin_area' %}" class="nav-link">Administración</a>
-            </li>
-            </ul>
-          </div>
-          {% else %}
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -84,25 +53,35 @@
                 </a>
                 <ul class="dropdown-menu">
                   {% for p in categoria %}
-                  <li><a class="nav-link" href="categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
+                  <li><a class="nav-link" href="/categoria/{{p.slug_categoria}}">{{ p.nombreCategoria }}</a></li>
                   {% endfor %}
                 </ul>
               </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                  <a class="nav-link">Hola, {{ user.username }}!</a>
+              </li>
+              <li class="nav-item">
+                <p><a class="nav-link"  href="{% url 'logout' %}">Cerrar Sesión</a></p>
+              </li>
+                {% if user.is_authenticated and user.is_staff %}
+                <li class="nav-item">
+                  <a href="{% url 'admin_area' %}" class="nav-link">Administración</a>
+                </li>
+                {% endif %}
+              {% else %}
               <li class="nav-item">
                 <a class="nav-link">Hola, invitado!</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
-            </li>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'registro' %}">Registro</a>
               </li>
-              <li class="nav-item">
-                <a href="{% url 'admin_area' %}" class="nav-link">Administración</a>
-              </li
+              {% endif %}
             </ul>
           </div>
-          {% endif %}
         </div>
       </div>
     </nav>
@@ -127,6 +106,9 @@
             {% csrf_token %}
             {% if error %}
             <small class="text-danger">{{ error }}</small>
+            {% endif %}
+            {% if register %}
+            <small class="text-sucess">{{ register }}</small>
             {% endif %}
             <div class="mb-3">
               <label for="campo-nickname">Ingresa tu nombre de usuario</label>

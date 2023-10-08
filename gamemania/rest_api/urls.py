@@ -5,6 +5,6 @@ from rest_api.views import lista_categorias, lista_videojuegos, modify_categoria
 urlpatterns = [
     path('listar-categorias/',lista_categorias,name="lista_categorias"),
     path('listar-videojuegos/',lista_videojuegos,name="lista_videojuegos"),
-    path('modificar-categoria/<id>',modify_categoria,name="modify_categoria"),
+    #path('modificar-categoria/<id>',modify_categoria,name="modify_categoria"),
     # path('login/',login,name="login")
 ]
