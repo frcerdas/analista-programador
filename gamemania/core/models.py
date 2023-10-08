@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from django.utils.text import slugify
+from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your models here.
 # añadimos el usuario profile
