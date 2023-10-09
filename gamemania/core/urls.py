@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import inicio, categoria_detail, inicio_sesion, registro, add_categoria, list_categoria, modify_categoria, add_juego, list_juego, modify_juego, cerrar_sesion, admin_area
+from .views import inicio, categoria_detail, inicio_sesion, registro, add_categoria, list_categoria, modify_categoria, add_juego, list_juego, modify_juego, cerrar_sesion, admin_area, registro_admin
 
 # app_name = "core"   
 
@@ -17,4 +17,5 @@ urlpatterns = [
     path('listar-juegos/', list_juego, name='list_juego'),
     path('modificar-juego/<id>', modify_juego, name='modify_juego'),
     path('area-administracion/', admin_area, name='admin_area'),
+    path('registro-admin/', registro_admin, name='registro_admin')
 ]

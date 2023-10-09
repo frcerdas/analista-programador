@@ -209,7 +209,7 @@ def registro(request):
                 context = {
                 'error' : 'Error, el nombre de usuario ya se encuentra en uso.'
                 }
-                
+                return render(request,'core/registro.html',context)
             if exists_email(email):
                 context = {
                 'error' : 'Error, el correo registrado ya se encuentra en uso.'
@@ -227,6 +227,42 @@ def registro(request):
         'categoria': categoria
     }
     return render(request, 'core/registro.html', context)
+
+@staff_member_required
+def registro_admin(request):
+    context = {}
+    if request.method == 'POST':
+        nombre = request.POST.get('campo-nombre')
+        username = request.POST.get('campo-nickname')
+        email = request.POST.get('campo-email')
+        password = request.POST.get('campo-password')
+        password2 = request.POST.get('campo-password-2')
+        nacimiento = request.POST.get('campo-fecha-nacimiento')
+        direccion = request.POST.get('campo-direccion')
+        staff = request.POST.get('campo-staff')
+
+        if exists_user(username):
+            context = {
+            'error' : 'Error, el nombre de usuario ya se encuentra en uso.'
+            }
+            return render(request,'core/registro-admin.html',context)
+        if exists_email(email):
+            context = {
+            'error' : 'Error, el correo registrado ya se encuentra en uso.'
+            }
+            return render(request,'core/registro-admin.html',context)
+        
+        User.objects.create_user(username=username, first_name=nombre, last_name='null', email=email, password=password, is_staff=staff)
+            
+        context = {
+                'register' : 'Registro Exitoso!'
+            }
+        return render(request,'core/registro-admin.html',context)
+    categoria = Categoria.objects.all()
+    context = {
+        'categoria': categoria
+    }
+    return render(request, 'core/registro-admin.html', context)
 
 @staff_member_required
 def addgame(request):
