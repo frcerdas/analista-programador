@@ -90,10 +90,10 @@
     <div id="slider" class="container-fluid text-center">
       <div class="bg"></div>
       <div class="row align-items-center">
-        <h2>Área de administración</h2>
+        <h2>Modificar Usuarios</h2>
         <p>
-          <a href="/">Inicio</a> >
-          <strong>Ádministración</strong>
+          <a href="/">Inicio</a> > <a href="/area-administracion">Administración</a> >
+          <strong>Modificar Usuarios</strong>
         </p>
       </div>
     </div>
@@ -101,13 +101,28 @@
       <div class="row">
         <div class="container">
           <div class="row display-flex justify-content-center pb-5">
-            <div class="col-md-4 text-center">
-                  <a href="{% url 'list_categoria' %}" class="btn btn-light m-1">Listar categorías</a>
-                  <a href="{% url 'list_juego' %}" class="btn btn-light m-1">Listar videojuegos</a>
-                  <a href="{% url 'add_categoria' %}" class="btn btn-light m-1">Añadir categorías</a>
-                  <a href="{% url 'add_juego' %}" class="btn btn-light m-1">Añadir videojuegos</a>
-                  <a href="{% url 'registro_admin' %}" class="btn btn-light m-1">Añadir usuarios</a>
-                  <a href="{% url 'list_users' %}" class="btn btn-light m-1">Listar usuarios</a>
+            <div class="col-md-10">
+              <table class="table table-striped-columns">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Fecha de registro</th>
+                    <th scope="col">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for user in users %}
+                  <tr>
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.date_joined }}</td>
+                    <td><a href="{% url 'modify_user' user.id %}">Modificar</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              
             </div>
           </div>
         </div>

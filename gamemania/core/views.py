@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.admin.views.decorators import staff_member_required
-from .forms import CategoriaForm, VideojuegoForm
+from .forms import CategoriaForm, VideojuegoForm, UsersForm
 from .decorators import role_required
 from .forms import CategoriaForm
 
@@ -100,6 +100,13 @@ def list_juego(request):
         'videojuegos': videojuegos
     }
     return render(request, 'core/list-juegos.html', context)
+@staff_member_required
+def list_users(request):
+    users = User.objects.all()
+    context = {
+        'users': users
+    }
+    return render(request, 'core/list-users.html', context)
 
 @staff_member_required
 def add_juego(request):
@@ -141,6 +148,25 @@ def modify_juego(request, id):
         'categorias': categorias,
     }
     return render(request, 'core/update-juego.html', context)
+
+@staff_member_required
+def modify_user(request, id):
+    user = User.objects.get(id=id)
+    if request.method == 'POST':
+        form = UsersForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Usuario modificado con éxito.')
+        else:
+            messages.error(request, 'Hubo un error al modificar al usuario. Corrige los errores en el formulario.')
+    else:
+        form = UsersForm(instance=user)
+
+    context = {
+        'form': form,
+        'categorias': categorias,
+    }
+    return render(request, 'core/update-user.html', context)
 
 def inicio_sesion(request):
     if request.method == 'POST':
