@@ -27,3 +27,4 @@
     ```bash
     python manage.py runserver
     ```
+9. Crear un usuario de tipo staff en registro, asegurarse de seleccionar "Staff" para poder acceder al panel de administración
