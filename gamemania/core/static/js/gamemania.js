@@ -19,12 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       var usdSinceSpan = document.getElementById("usd-since");
       usdSinceSpan.innerHTML = mensaje;
-      // Valor del dólar actual (cámbialo por el valor real)
-      var valorDolarActual = response.dolar.valor; // Ejemplo
-
-      // Función para formatear un número como precio en peso chileno
+      // Valor dólar y formateo CLP chileno
+      var valorDolarActual = response.dolar.valor;
       function formatearPrecioCLP(precioCLP) {
-        // Formatear el número como precio en peso chileno (agregar separador de miles y símbolo "$")
         return "$" + precioCLP.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       }
 
